@@ -83,13 +83,15 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="rst文件语法.html">RST文件语法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux命令速查.html">Linux 命令大全</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Python手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#id1">快速入门</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">开发模板</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">内存管理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">类型说明</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">模块相关</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">模块相关</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">快速入门</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">开发模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">内存管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">类型说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">模块相关</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">学习资料</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -158,9 +160,8 @@
             
   <div class="section" id="python">
 <h1>Python手册<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
-</div>
 <div class="section" id="id1">
-<h1>快速入门<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h2>快速入门<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>三种运行:交互式的启动解释器、命令行启动脚本、集成开发环境
 
 特殊字符:
@@ -200,7 +201,7 @@ for循环与range
 </pre></div>
 </div>
 <div class="section" id="id2">
-<h2>开发模板<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h3>开发模板<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
 <a class="reference internal image-reference" href="_images/template.png"><img alt="_images/template.png" src="_images/template.png" style="width: 500px; height: 600px;" /></a>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>__name__如何能区分能在运行时检测该模块是被导入还是被直接执行呢？
 1。如果模块是被导入，__name__的值为模块名字；
@@ -210,7 +211,7 @@ for循环与range
 </div>
 </div>
 <div class="section" id="id3">
-<h2>内存管理<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h3>内存管理<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.无需声明，直接定义
 2.动态类型
 3.自动完成内存分配回收【不智能】：变量引用对象，计算对象被不同变量引用的个数决定对象的生命周期
@@ -231,10 +232,17 @@ for循环与range
 </div>
 </div>
 <div class="section" id="id4">
-<h2>类型说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h3>类型说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.获取数据类型的内建函数type
+2.所有类型对象的类型都是type,它也是所有Python类型的根和所有Python标准类的默认元类（metadass）
+3.空对象、值为零的任何数字或者Null对象None的布尔值都是False
+4.Python提供了 is和is not操作符来测试两个变量是否指向同一个对象。
+  type()和 isinstance(变量名，(类型))
+</pre></div>
+</div>
 </div>
 <div class="section" id="id5">
-<h2>模块相关<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h3>模块相关<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>函数:将一组代码组织到一起，实现某种功能
 模块:为实现某种逻辑将相关连的函数写在同一个文件里，使逻辑更清楚，这就是一个模块,在python中文件以.py 结尾，那这个.py文件就可以称之为模块
 包：方便管理模块，python 中引入了包的概念，包是由关联的多个模块组成的目录，包下而都有一个__init__.py文件否则就是普通目录
@@ -260,7 +268,7 @@ Python import 的搜索路径：
 </div>
 </div>
 <div class="section" id="id6">
-<h2>模块相关<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h3>学习资料<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>相关模块和开发工具:
 《Python风格指南》（Python Style Guide,PEP8）、《Python快速参考指南》（Python
 Quick Reference Guide）和《Python常见问答》（Python FAQ）都是开发者很重要的“工
@@ -282,6 +290,7 @@ cProfile模块是Python2.5新增的，它用来替换掉已经有历史的hotsho
 认的它的一个较明显的缺点是它需要花较长时间从日志文件中载入分析结果，不支持子函数
 状态细节及某些结果不准。它也是用C语言来实现的。
 </pre></div>
+</div>
 </div>
 </div>
 </div>
