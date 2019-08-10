@@ -6,9 +6,9 @@
 
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
- rst文件语法
- linux命令速查
- python入门手册
+    rst文件语法
+    linux命令速查
+    python入门手册
 

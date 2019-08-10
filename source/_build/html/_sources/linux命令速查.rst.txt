@@ -12,7 +12,7 @@ netstat        显示与IP、TCP、UDP和ICMP协议相关的统计数据
 ps             显示系统中当前运行的那些进程
 ===========  =========================
 
-.. code-block::
+:: 
    
    nethogs:查看进程带宽网络占用
     -d : delay for update refresh rate in seconds. default is 1. //延迟刷新时间，单位秒，默认1秒
