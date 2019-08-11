@@ -3,7 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-
+主页
+========
 
 .. toctree::
     :maxdepth: 1
