@@ -73,3 +73,10 @@ reStructuredText会自动将网址生成超链接。
 .. image:: images/test.png
    :height: 100px
    :width: 200px
+
+样式
+=======
+
+**Strong Emphasis**
+
+*斜体*

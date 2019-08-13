@@ -38,7 +38,7 @@ Python手册
                     <语句>        #运行别的代码
                     except <名字>：
                     <语句>        #如果在try部份引发了'name'异常
-                    except <名字>，<数据>:
+                    except <名字> as <数据>:
                     <语句>        #如果引发了'name'异常，获得附加的数据
                     else:
                     <语句>        #如果没有异常发生               
@@ -94,6 +94,10 @@ Python手册
     3.空对象、值为零的任何数字或者Null对象None的布尔值都是False
     4.Python提供了 is和is not操作符来测试两个变量是否指向同一个对象。
       type()和 isinstance(变量名，(类型))
+    5.del 删除对象相关的引用，具体回收内存要垃圾回收器 
+    6.整型 等价于C中的有符号长整型（long），与系统的最大整型一致
+    7.长整型 是整型的超集，可以表示无限大的整数（实际上只受限于机器的虚拟内存大小），长整型字面值的后面带有字母“L”或“l
+    8.浮点型 类似于C中的双精度浮点型（double）
 
 ========
 模块相关
@@ -130,12 +134,8 @@ Python手册
 ::
 
     相关模块和开发工具:
-    《Python风格指南》（Python Style Guide,PEP8）、《Python快速参考指南》（Python
-    Quick Reference Guide）和《Python常见问答》（Python FAQ）都是开发者很重要的“工
-    具”。另外，还有一些模块会帮助你成为一个优秀的Python程序员。
-    调试器：pdbo
-    记录器：logging。
-    性能测试器：profile、hotshot、cProfile。
+       1.相关书籍： Python风格指南、Python快速参考指南和Python常见问答
+       2.相关模块： 调试器：pdbo 记录器：logging 性能测试器：profile、hotshot、cProfile
    
     
             
