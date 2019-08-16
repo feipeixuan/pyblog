@@ -49,7 +49,15 @@ Python手册
 
     for循环与range
          说明： 接受可迭代对象，每次迭代取一个元素，
-               range()函数得到的其实是一个iterable类型，在python里解释为可以迭代的对象，可以使用for来遍历产生的结果，使用list()将结果转化为列表类型  
+               range()函数得到的其实是一个iterable类型，在python里解释为可以迭代的对象，可以使用for来遍历产生的结果，使用list()将结果转化为列表类型 
+               推荐使用 for i in xrange(100000) 来完成迭代计算，range会生成临时列表，xrange则不会,xrange返回的是一个生成器，
+                       一边循环一边计算，每次只返回一个值，这样就不必开辟这么大的内存空间了。
+               在python3.x中，xrange被废除了，range功能跟xrange相同
+                       
+               搭配else:
+                      与 if 一样， while 和 for 循环后面也可以跟着 else 语句，不过要和break一起连用。
+                            当循环正常结束时，循环条件不满足， else 被执行；[Else clause on loop without a break statement]
+                            当循环被 break 结束时，循环条件仍然满足， else 不执行        
 
     列表解析
          说明： [expression for iter_val in iterable if cond_expr] 使用循环将所有值放入一个列表中
