@@ -13,6 +13,7 @@ Python手册
          换行\: 继续上一行
          赋值=: x,y,z=1,2,3  
          下划线标识符：_XXX类中的私有变量名
+         ** 代表乘方
 
     字符串重要的操作符: 
          说明：[] 索引操作符、[i:j] 切片操作符，最后一个索引是 -1 ，引入了负索引值的用法，即从后向前开始计数
@@ -61,18 +62,38 @@ Python手册
 
     列表解析
          说明： [expression for iter_val in iterable if cond_expr] 使用循环将所有值放入一个列表中
+         案例： squares = [x**2 for x in values if x <= 10]、{x: x**2 for x in values if x <= 10}
 
     错误和异常
          说明：  python无法正常处理程序，就会产生一个异常，try except语句可以捕获或者处理异常   
+                使用Exception类来捕获所有的异常
          案例：
                 try:
                     <语句>        #运行别的代码
                     except <名字>：
-                    <语句>        #如果在try部份引发了'name'异常
-                    except <名字> as <数据>:
+                    <语句>        #如果在try部份引发了'name'异常 
+                    except <名字> as <数据>: 可以获取异常的具体信息
                     <语句>        #如果引发了'name'异常，获得附加的数据
                     else:
-                    <语句>        #如果没有异常发生               
+                    <语句>        #如果没有异常发生  
+                finally: 无论是否有异常，这块代码总会执行
+                    print("123")    
+
+    函数定义
+          不定参数：*args 表示参数数目不定，可以看成一个元组，把第一个参数后面的参数当作元组中的元素
+                  **kwargs 表示参数数目不定，相当于一个字典，关键词和值对应于键值对
+
+          返回多个值：
+               return r, theta        
+
+          案例：
+               def foo(*args, **kwargs):
+                    print args, kwargs
+               foo(2, 3, x='bar', z=10)
+               r, theta = to_polar(3, 4)
+                        
+
+
 
 ========
 开发模板
@@ -148,7 +169,7 @@ Python手册
     包：方便管理模块，python 中引入了包的概念，包是由关联的多个模块组成的目录，包下而都有一个__init__.py文件否则就是普通目录
 
     引入模块：
-            import:导入模块的所有 import xx ,引用xx.a xx.b
+            import:导入模块的所有 import xx ,引用xx.a xx.b，import ex2 as e2 设置别名
             from import:导入模块的部分 
                 from xx import yyy 或者 from os import * ,引用 yyy
                 由于引用的时候没有模块的前缀，可能导致重名函数打乱命名空间
@@ -164,9 +185,32 @@ Python手册
                      符号: .代表当前所在文件的文件加,..代表上一级文件夹,...代表上一级的上一级文件夹
                      优点: 导入更加简单
                      缺点: 只能在导入包中的模块时才能使用,不能在执行文件中用
-            
+
+     常用库列表：
+          re 正则表达式
+          copy 复制
+          math, cmath 数学
+          decimal, fraction
+          sqlite3 数据库
+          os, os.path 文件系统
+          gzip, bz2, zipfile, tarfile 压缩文件
+          csv, netrc 各种文件格式
+          xml
+          htmllib
+          ftplib, socket
+          cmd 命令行
+          pdb
+          profile, cProfile, timeit
+          collections, heapq, bisect 数据结构
+          mmap
+          threading, Queue 并行
+          multiprocessing
+          subprocess
+          pickle, cPickle
+          struct                
+
 ========
-学习资料
+文件管理
 ========   
 
 ::
@@ -177,6 +221,19 @@ Python手册
 
     博客：
        1.http://lijin-thu.github.io/ python入门知识+进阶知识讲解   
+
+========
+学习资料
+========   
+
+::
+     基本操作：
+          open 函数指定文件路径及操作类型 open("aaa.csv","r")
+     
+     附加说明：
+          二进制读写模式 b
+          在Python中，如果一个打开的文件不再被其他变量引用时，它会自动关闭这个文件。所以正常情况下，如果一个文件正常被关闭了，忘记调用文件的 close 方法不会有什么问题。
+               关闭文件可以保证内容已经被写入文件，而不关闭可能会出现意想不到的结果
    
     
             
