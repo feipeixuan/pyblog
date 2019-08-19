@@ -13,5 +13,5 @@
     linux命令速查
     python入门手册
     算法资料
-    Python坑大全
+    python坑大全
 
