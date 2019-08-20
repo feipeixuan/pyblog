@@ -34,3 +34,24 @@ os模块简介[与操作系统交互]
     os.makedirs(name)：产生新文件夹，如果中间路径的文件夹不存在，则创建文件夹
    
 os.environ 是一个存储所有环境变量的值的字典，可以修改
+
+os.path模块
+--------
+不同的操作系统使用不同的路径规范，这样当我们在不同的操作系统下进行操作时，可能会带来一定的麻烦，而 os.path 模块则帮我们解决了这个问题。
+
+::
+
+    通用算法
+    os.path.isfile(path) ：检测一个路径是否为普通文件
+    os.path.isdir(path)：检测一个路径是否为文件夹
+    os.path.exists(path)：检测路径是否存在
+    os.path.isabs(path)：检测路径是否为绝对路径
+    split 和 join
+    os.path.split(path)：拆分一个路径为 (head, tail) 两部分
+    os.path.join(a, *p)：使用系统的路径分隔符，将各个部分合成一个路径
+    其他
+    os.path.abspath()：返回路径的绝对路径
+    os.path.dirname(path)：返回路径中的文件夹部分
+    os.path.basename(path)：返回路径中的文件部分
+    os.path.slitext(path)：将路径与扩展名分开
+    os.path.expanduser(path)：展开 '~' 和 '~user'
