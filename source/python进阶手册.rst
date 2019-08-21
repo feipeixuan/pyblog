@@ -132,6 +132,7 @@ Python 中的函数传递方式是 call by reference 即引用传递，这一点
 以函数作为参数，或者返回一个函数的函数是高阶函数，常用的例子有 map 和 filter 函数
 
 ::
+
     filter(f, sq) 函数的作用相当于，对于 sq 的每个元素 s，返回所有 f(s) 为 True 的 s 组成的列表
     filter(is_even, range(5))
 
