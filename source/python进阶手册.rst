@@ -156,3 +156,91 @@ global变量
 ----------- 
 
 一般来说，函数中是可以直接使用全局变量的值的，但是要在函数中修改全局变量的值，需要加上 global 关键字，如果不加上这句 global 那么全局变量的值不会改变
+
+修饰符
+----------- 
+
+在 Python 中，函数是也是一种对象，<type 'function'>
+
+::
+
+    使用dir可以查看变量的属性、方法列表
+        dir(foo)    
+        foo.__call__(42) 等价于 foo(42) ，foo是方法
+
+    修饰符是这样的一种函数，它接受一个函数作为输入，通常输出也是一个函数
+        def dec(f):
+            print 'I am decorating function', id(f)
+        return f  
+
+        declen = dec(len)   
+
+    Python内置的@property装饰器就是负责把一个get方法变成属性调用的：
+        property(fget=None, fset=None, fdel=None, doc=None)
+
+        class Student(object):
+
+        @property
+        def score(self):   # 把一个getter方法变成属性，只需要加上@property就可以
+            return self._score
+
+        @score.setter      # @score.setter，负责把一个setter方法变成属性赋值
+        def score(self, value):
+            if not isinstance(value, int):
+                raise ValueError('score must be an integer!')
+            if value < 0 or value > 100:
+                raise ValueError('score must between 0 ~ 100!')
+            self._score = value
+
+        还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性 
+    
+    @classmethod 修饰符:classmethod 将一个对象方法转换了类方法：
+
+with 上下文管理器
+-----------      
+
+    处理文件，线程，数据库，网络编程等等资源的时候，安全的格式
+
+    ::
+
+        try:
+            # do something with the resource
+            ...
+        finally:
+            # destroy/release the resource
+            ...
+
+    更精简的写法，Python 提供了 with 语句帮我们自动进行这样的处理
+
+    ::
+
+        with open('my_file', 'w') as fp:
+            # do stuff with fp
+            data = fp.write("Hello world")
+
+
+    其基本用法如下：
+
+    with <expression>:
+        <block>
+    <expression> 执行的结果应当返回一个实现了上下文管理器的对象，即实现这样两个方法，__enter__ 和 __exit__： 
+        __enter__ 方法在 <block> 执行前执行，而 __exit__ 在 <block> 执行结束后执行： 
+
+
+    ::
+        
+        class ContextManager(object):
+            
+            def __enter__(self):
+                print "Entering"
+            
+            def __exit__(self, exc_type, exc_value, traceback): # 错误值和 traceback 等内容作为参数传递给 __exit__ 函数：
+                print "Exiting"
+        使用 with 语句执行：
+
+        with ContextManager() as value: # 将 __enter__ 返回的值传给 value 变量
+            print "  Inside the with statement"          
+
+
+
+
