@@ -218,6 +218,12 @@ with 上下文管理器
             # do stuff with fp
             data = fp.write("Hello world")
 
+        try:
+            with open('xxx') as fin:
+            pass
+        except Exception:
+            pass    
+
 
     其基本用法如下：
 
