@@ -9,3 +9,7 @@
 ||
 `机器学习使用的建议 <https://blog.csdn.net/zhq9695/article/details/82885750>`_
 
+有趣的小项目
+********
+
+`简易的OCR <https://blog.csdn.net/weixin_39278265/article/details/80915001>`_
