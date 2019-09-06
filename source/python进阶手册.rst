@@ -225,7 +225,9 @@ with 上下文管理器
             pass    
 
 
-    其基本用法如下：
+其基本用法如下：
+
+::
 
     with <expression>:
         <block>
@@ -233,7 +235,7 @@ with 上下文管理器
         __enter__ 方法在 <block> 执行前执行，而 __exit__ 在 <block> 执行结束后执行： 
 
 
-    ::
+::
         
         class ContextManager(object):
             
@@ -246,6 +248,100 @@ with 上下文管理器
 
         with ContextManager() as value: # 将 __enter__ 返回的值传给 value 变量
             print "  Inside the with statement"          
+
+yield生成器
+-----------
+
+::
+
+    def fab(max): 
+        n, a, b = 0, 0, 1 
+        while n < max: 
+            yield b      # 使用 yield
+            # print b 
+            a, b = b, a + b 
+            n = n + 1
+    
+        for n in fab(5): 
+            print n
+
+
+yield 的作用就是把一个函数变成一个 generator，带有 yield 的函数不再是一个普通函数，Python 解释器会将其视为一个 generator，
+调用 fab(5) 不会执行 fab 函数，而是返回一个 iterable 对象！
+在 for 循环执行时，每次循环都会执行 fab 函数内部的代码，执行到 yield b 时，fab 函数就返回一个迭代值，
+下次迭代时，代码从 yield b 的下一条语句继续执行，
+而函数的本地变量看起来和上次中断执行前是完全一样的，于是函数继续执行，直到再次遇到 yield
+
+numpy基础
+-----------
+
+    numpy是Python的一个很重要的第三方库，很多其他科学计算的第三方库都是以Numpy为基础建立的
+
+    1. 基础使用
+
+::
+
+    导入:
+        import numpy
+        import numpy as np
+        from numpy import *
+        from numpy import array, sin
+
+    操作：
+        创建数组:传入列表对象即可,
+                a = array([0,1.0,2,3],dtype=float32) 可以指定类型
+        运算:数组+运算、*运算、**运算 【列表不支持】
+        其他:提取元素同列表、shape获得形状[m行*n列]、size获得元素个数、ndim查看维度、>=2 选择元素，返回是布尔值数组
+        全体指定值:fill 方法将数组设为指定值
+        多维数组应用: 
+                    a[1, 3]、
+                    a[1] 返回第二行元组组成的array
+                    a[0, 3:5] 想得到第一行的第 4 和第 5 两个元素：
+                    a[:, 2] 得到第三列：
+                    [lower:upper:step] 每一维都支持切片的规则，包括负索引，省略：
+
+        切片在内存中使用的是引用机制,列表中不是:
+                    a = array([0,1,2,3,4])
+                    b = a[2:4]
+                    Python并没有为 b 分配新的空间来存储它的值，而是让 b 指向了 a 所分配的内存空间，因此，改变 b 会改变 a 的值：
+                    一个解决方法是使用copy()方法产生一个复制，这个复制会申请新的内存
+
+        花式索引: 切片只能支持连续或者等间隔的切片操作，要想实现任意位置的操作，需要使用花式索引 fancy slicing
+                与切片不同，花式索引返回的是原对象的一个复制而不是引用
+                一维花式索引:
+                            indices = [1, 2, -3] 利用索引
+                            y = a[indices]
+
+                            mask = array([0,1,1,0,0,1,0,0], dtype=bool) 利用布尔数组
+                            a[mask]
+                            mask = a > 0.5
+                            a[mask]
+
+                二维花式索引: 对于二维花式索引，我们需要给定 row 和 col 的值
+                                a[(0,1,2,3,4), (1,2,3,4,5)] 对角线
+                                a[3:, [0,2,5]] 第三行开始的固定位置
+                                mask = array([1,0,1,0,0,1],dtype=bool)
+                                a[mask, 2]
+                            只给定行索引的时候，返回整行：
+                                y = a[:3]
+                三维花式索引:
+                                a = arange(64)
+                                a.shape = 4,4,4
+                                y = a[:,:,[2, -1]]
+
+        where 语句:where 函数会返回所有非零元素的索引。   
+
+                a = array([[0, 12, 5, 20],
+                    [1, 2, 11, 15]])
+                loc = where(a > 10) 
+                a[loc]
+                array([12, 20, 11, 15])
+                rows, cols = where(a>10)             
+         
+                                    
+
+
+
 
 
 
