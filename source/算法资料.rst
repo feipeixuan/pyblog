@@ -8,6 +8,8 @@
 `吴恩达神经网络 <https://www.cnblogs.com/linhxx/p/8412705.html>`_
 ||
 `机器学习使用的建议 <https://blog.csdn.net/zhq9695/article/details/82885750>`_
+||
+`反向传播实现 <https://blog.csdn.net/admin_maxin/article/details/81274512>`_
 
 有趣的小项目
 ********
